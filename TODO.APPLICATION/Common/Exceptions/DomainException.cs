@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace TODO.API.Exceptions
+namespace TODO.APPLICATION.Common.Exceptions
 {
     public class DomainException : Exception
     {

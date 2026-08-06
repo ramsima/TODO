@@ -1,6 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="12.1.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
     <PackageReference Include="MediatR" Version="14.2.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.9" />
@@ -15,8 +17,6 @@
     <Folder Include="Features\Priorities\Command\" />
     <Folder Include="Features\Tags\Command\" />
     <Folder Include="Features\Todo\Mappings\" />
-    <Folder Include="Behaviors\" />
-    <Folder Include="Common\" />
   </ItemGroup>
 
   <PropertyGroup>

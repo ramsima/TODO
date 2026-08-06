@@ -1,7 +1,8 @@
 ﻿using System.Net;
 using System.Text.Json;
-using TODO.API.Exceptions;
 using TODO.DOMAIN;
+using TODO.APPLICATION.Common.Exceptions;
+using FluentValidation;
 
 
 namespace TODO.API.Middleware
@@ -48,17 +49,34 @@ namespace TODO.API.Middleware
                 return;
             }
             var traceId = context.TraceIdentifier;
-            var (statusCode, errorcode) = ex switch
+            //var (statusCode, errorcode) = ex switch
+            //{
+            //    NotFoundException => (HttpStatusCode.NotFound, "97"),
+            //    DuplicateFieldException => (HttpStatusCode.Conflict, "97"),
+            //    ConflictException => (HttpStatusCode.Conflict, "97"),
+            //    ForbiddenException => (HttpStatusCode.Forbidden, "97"),
+            //    BadRequestException => (HttpStatusCode.BadRequest, "97"),
+            //    UnauthorizedAccessException => (HttpStatusCode.Unauthorized, "97"),
+            //    ArgumentException => (HttpStatusCode.BadRequest, "97"),
+            //    _ => (HttpStatusCode.InternalServerError, "97")
+            //};
+
+            var statusCode = ex switch
             {
-                NotFoundException => (HttpStatusCode.NotFound, "97"),
-                DuplicateFieldException => (HttpStatusCode.Conflict, "97"),
-                ConflictException => (HttpStatusCode.Conflict, "97"),
-                ForbiddenException => (HttpStatusCode.Forbidden, "97"),
-                BadRequestException => (HttpStatusCode.BadRequest, "97"),
-                UnauthorizedAccessException => (HttpStatusCode.Unauthorized, "97"),
-                ArgumentException => (HttpStatusCode.BadRequest, "97"),
-                _ => (HttpStatusCode.InternalServerError, "97")
+                ValidationException => HttpStatusCode.BadRequest,
+                NotFoundException => HttpStatusCode.NotFound,
+                DuplicateFieldException => HttpStatusCode.Conflict,
+                ConflictException => HttpStatusCode.Conflict,
+                ForbiddenException => HttpStatusCode.Forbidden,
+                BadRequestException => HttpStatusCode.BadRequest,
+                UnauthorizedAccessException => HttpStatusCode.Unauthorized,
+                ArgumentException => HttpStatusCode.BadRequest,
+                _ => HttpStatusCode.InternalServerError
             };
+
+            var errorcode = ex is DomainException domainException
+            ? domainException.ErrorCode
+            : "INTERNAL_SERVER_ERROR";
 
             if ((int)statusCode >= 500)
                 _logger.LogError(ex,
@@ -68,9 +86,11 @@ namespace TODO.API.Middleware
                 _logger.LogWarning(ex,
                     "Client error {StatusCode} | TraceId: {TraceId} | {Method} {Path}",
                     (int)statusCode, traceId, context.Request.Method, context.Request.Path);
-            var message = _env.IsDevelopment()
-    ? ex.Message
-    : GetFriendlyMessage(ex);
+
+
+            var message = _env.IsDevelopment() ? ex.Message : GetFriendlyMessage(ex);
+
+            
 
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)statusCode;
@@ -79,9 +99,15 @@ namespace TODO.API.Middleware
                 responseCode = errorcode,
                 message = message,
                 result = null!,
-                meta = new
+                meta = ex is ValidationException validationException ? 
+                new
                 {
-                    traceId
+                    traceId,
+                    errors = validationException.Errors.GroupBy(x => x.PropertyName).ToDictionary(g => g.Key,g => g.Select(e => e.ErrorMessage).ToArray())
+                }:
+                new
+                { 
+                    traceId 
                 }
             };
 

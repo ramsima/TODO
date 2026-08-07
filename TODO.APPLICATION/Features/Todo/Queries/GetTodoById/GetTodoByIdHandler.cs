@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Todo.Application.DTOs;
 using Todo.Application.Interfaces;
+using TODO.APPLICATION.Common.Exceptions;
 
 namespace TODO.APPLICATION.Features.Todo.Queries.GetTodoById
 {
@@ -13,7 +14,12 @@ namespace TODO.APPLICATION.Features.Todo.Queries.GetTodoById
     {
         public async Task<TodoDto?> Handle(GetTodoByIdQuery request,CancellationToken cancellationToken)
         {
-            return await _repository.GetByIdAsync(request.id, cancellationToken);
+            var result = await _repository.GetByIdAsync(request.id, cancellationToken);
+            if(result == null)
+            {
+                throw new NotFoundException($"Todo with Id {request.id} doesnot exist.");
+            }
+            return result;
         }
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Todo.Application.DTOs;
 using Todo.Application.Services;
+using TODO.APPLICATION.Common.Exceptions;
 using TODO.APPLICATION.Features.Todo.Commands.CreateTodo;
 using TODO.APPLICATION.Features.Todo.Commands.DeleteTodo;
 using TODO.APPLICATION.Features.Todo.Commands.UpdateTodo;
@@ -39,9 +40,6 @@ namespace Todo.Api.Controllers
             //var todo = await _todoService.GetByIdAsync(id);
 
             var todo = await _mediator.Send(new GetTodoByIdQuery(id),cancellationToken);
-
-            if (todo == null)
-                return NotFound();
 
             return Ok(todo);
         }

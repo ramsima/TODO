@@ -3,12 +3,36 @@
   "WorkspaceRootPath": "F:\\Channakya Projects\\ToDo1\\TODO\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{2184562B-98A4-4F03-87E9-F30566088FE1}|TODO.APPLICATION\\TODO.APPLICATION.csproj|f:\\channakya projects\\todo1\\todo\\todo.application\\features\\todo\\queries\\gettodobyid\\gettodobyidhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2184562B-98A4-4F03-87E9-F30566088FE1}|TODO.APPLICATION\\TODO.APPLICATION.csproj|solutionrelative:todo.application\\features\\todo\\queries\\gettodobyid\\gettodobyidhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{856CBD3A-E77B-49FC-8E1B-959C676F98D3}|TODO.API\\TODO.API.csproj|f:\\channakya projects\\todo1\\todo\\todo.api\\controllers\\todoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{856CBD3A-E77B-49FC-8E1B-959C676F98D3}|TODO.API\\TODO.API.csproj|solutionrelative:todo.api\\controllers\\todoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2184562B-98A4-4F03-87E9-F30566088FE1}|TODO.APPLICATION\\TODO.APPLICATION.csproj|f:\\channakya projects\\todo1\\todo\\todo.application\\behaviors\\loggingbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2184562B-98A4-4F03-87E9-F30566088FE1}|TODO.APPLICATION\\TODO.APPLICATION.csproj|solutionrelative:todo.application\\behaviors\\loggingbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{856CBD3A-E77B-49FC-8E1B-959C676F98D3}|TODO.API\\TODO.API.csproj|f:\\channakya projects\\todo1\\todo\\todo.api\\middleware\\globalexceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{856CBD3A-E77B-49FC-8E1B-959C676F98D3}|TODO.API\\TODO.API.csproj|solutionrelative:todo.api\\middleware\\globalexceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2184562B-98A4-4F03-87E9-F30566088FE1}|TODO.APPLICATION\\TODO.APPLICATION.csproj|f:\\channakya projects\\todo1\\todo\\todo.application\\behaviors\\validationbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2184562B-98A4-4F03-87E9-F30566088FE1}|TODO.APPLICATION\\TODO.APPLICATION.csproj|solutionrelative:todo.application\\behaviors\\validationbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{856CBD3A-E77B-49FC-8E1B-959C676F98D3}|TODO.API\\TODO.API.csproj|f:\\channakya projects\\todo1\\todo\\todo.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{856CBD3A-E77B-49FC-8E1B-959C676F98D3}|TODO.API\\TODO.API.csproj|solutionrelative:todo.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2184562B-98A4-4F03-87E9-F30566088FE1}|TODO.APPLICATION\\TODO.APPLICATION.csproj|f:\\channakya projects\\todo1\\todo\\todo.application\\dependencyinjection\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2184562B-98A4-4F03-87E9-F30566088FE1}|TODO.APPLICATION\\TODO.APPLICATION.csproj|solutionrelative:todo.application\\dependencyinjection\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2184562B-98A4-4F03-87E9-F30566088FE1}|TODO.APPLICATION\\TODO.APPLICATION.csproj|f:\\channakya projects\\todo1\\todo\\todo.application\\common\\exceptions\\domainexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2184562B-98A4-4F03-87E9-F30566088FE1}|TODO.APPLICATION\\TODO.APPLICATION.csproj|solutionrelative:todo.application\\common\\exceptions\\domainexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2184562B-98A4-4F03-87E9-F30566088FE1}|TODO.APPLICATION\\TODO.APPLICATION.csproj|f:\\channakya projects\\todo1\\todo\\todo.application\\features\\todo\\commands\\createtodo\\createtodovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,39 +62,115 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GetTodoByIdHandler.cs",
+              "DocumentMoniker": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.APPLICATION\\Features\\Todo\\Queries\\GetTodoById\\GetTodoByIdHandler.cs",
+              "RelativeDocumentMoniker": "TODO.APPLICATION\\Features\\Todo\\Queries\\GetTodoById\\GetTodoByIdHandler.cs",
+              "ToolTip": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.APPLICATION\\Features\\Todo\\Queries\\GetTodoById\\GetTodoByIdHandler.cs",
+              "RelativeToolTip": "TODO.APPLICATION\\Features\\Todo\\Queries\\GetTodoById\\GetTodoByIdHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-07T11:13:55.588Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TodosController.cs",
+              "DocumentMoniker": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.API\\Controllers\\TodosController.cs",
+              "RelativeDocumentMoniker": "TODO.API\\Controllers\\TodosController.cs",
+              "ToolTip": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.API\\Controllers\\TodosController.cs",
+              "RelativeToolTip": "TODO.API\\Controllers\\TodosController.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAkwDEAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-07T09:16:27.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.API\\Program.cs",
+              "RelativeDocumentMoniker": "TODO.API\\Program.cs",
+              "ToolTip": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.API\\Program.cs",
+              "RelativeToolTip": "TODO.API\\Program.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAAE8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-07T08:35:33.237Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ServiceCollectionExtensions.cs",
+              "DocumentMoniker": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.APPLICATION\\DependencyInjection\\ServiceCollectionExtensions.cs",
+              "RelativeDocumentMoniker": "TODO.APPLICATION\\DependencyInjection\\ServiceCollectionExtensions.cs",
+              "ToolTip": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.APPLICATION\\DependencyInjection\\ServiceCollectionExtensions.cs",
+              "RelativeToolTip": "TODO.APPLICATION\\DependencyInjection\\ServiceCollectionExtensions.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB4AAABbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-07T08:32:10.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "LoggingBehavior.cs",
+              "DocumentMoniker": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.APPLICATION\\Behaviors\\LoggingBehavior.cs",
+              "RelativeDocumentMoniker": "TODO.APPLICATION\\Behaviors\\LoggingBehavior.cs",
+              "ToolTip": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.APPLICATION\\Behaviors\\LoggingBehavior.cs",
+              "RelativeToolTip": "TODO.APPLICATION\\Behaviors\\LoggingBehavior.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAgwEAAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-07T08:23:38.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DomainException.cs",
+              "DocumentMoniker": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.APPLICATION\\Common\\Exceptions\\DomainException.cs",
+              "RelativeDocumentMoniker": "TODO.APPLICATION\\Common\\Exceptions\\DomainException.cs",
+              "ToolTip": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.APPLICATION\\Common\\Exceptions\\DomainException.cs",
+              "RelativeToolTip": "TODO.APPLICATION\\Common\\Exceptions\\DomainException.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAIwBQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T10:16:06.78Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "CreateTodoValidator.cs",
               "DocumentMoniker": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.APPLICATION\\Features\\Todo\\Commands\\CreateTodo\\CreateTodoValidator.cs",
               "RelativeDocumentMoniker": "TODO.APPLICATION\\Features\\Todo\\Commands\\CreateTodo\\CreateTodoValidator.cs",
               "ToolTip": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.APPLICATION\\Features\\Todo\\Commands\\CreateTodo\\CreateTodoValidator.cs",
               "RelativeToolTip": "TODO.APPLICATION\\Features\\Todo\\Commands\\CreateTodo\\CreateTodoValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-06T09:59:26.554Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-06T09:59:26.554Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "GlobalExceptionMiddleware.cs",
               "DocumentMoniker": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.API\\Middleware\\GlobalExceptionMiddleware.cs",
               "RelativeDocumentMoniker": "TODO.API\\Middleware\\GlobalExceptionMiddleware.cs",
               "ToolTip": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.API\\Middleware\\GlobalExceptionMiddleware.cs",
               "RelativeToolTip": "TODO.API\\Middleware\\GlobalExceptionMiddleware.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAwwBwAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAAAowD4AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-06T09:56:30.898Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "ValidationBehavior.cs",
               "DocumentMoniker": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.APPLICATION\\Behaviors\\ValidationBehavior.cs",
               "RelativeDocumentMoniker": "TODO.APPLICATION\\Behaviors\\ValidationBehavior.cs",
               "ToolTip": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.APPLICATION\\Behaviors\\ValidationBehavior.cs",
               "RelativeToolTip": "TODO.APPLICATION\\Behaviors\\ValidationBehavior.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwCQAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAxwCMAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-06T09:55:46.138Z",
               "EditorCaption": ""

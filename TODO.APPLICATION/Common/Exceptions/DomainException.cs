@@ -8,25 +8,28 @@ namespace TODO.APPLICATION.Common.Exceptions
     public class DomainException : Exception
     {
         public string ErrorCode { get; set; }
-        public DomainException(string errorcode, string message) : base(message)
+        public DomainException(string errorCode,string message) : base(message) 
         {
-            ErrorCode = errorcode;
+            ErrorCode = errorCode;
         }
     }
+
     public class NotFoundException : DomainException
     {
         public NotFoundException(string message) : base("NOT_FOUND", message) { }
-
     }
+
+    public class ForbiddenException : DomainException
+    {
+        public ForbiddenException(string message) : base("FORBIDDEN", message) { }
+    }
+
     public class ConflictException : DomainException
     {
         public ConflictException(string message) : base("CONFLICT", message) { }
 
     }
-    public class ForbiddenException : DomainException
-    {
-        public ForbiddenException(string message) : base("FORBIDDEN", message) { }
-    }
+
     public class BadRequestException : DomainException
     {
         public BadRequestException(string message) : base("BAD_REQUEST", message) { }

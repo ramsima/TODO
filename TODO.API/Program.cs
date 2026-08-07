@@ -20,14 +20,27 @@ try
     //    .Enrich.FromLogContext().WriteTo.Console()
     //);
 
-    builder.Host.UseSerilog((x, y) =>
+    builder.Host.UseSerilog((context, services, configuration) =>
     {
-        y.ReadFrom.Configuration(x.Configuration)
-        .Enrich.FromLogContext();
-
-        y.WriteTo.File(path: "/Logs/log.txt");
-        y.WriteTo.Console();
+        configuration
+            .ReadFrom.Configuration(context.Configuration)
+            .ReadFrom.Services(services)
+            .Enrich.FromLogContext()
+            .WriteTo.Console()
+            .WriteTo.File(
+                "Logs/log-.txt",
+                rollingInterval: RollingInterval.Day
+            );
     });
+
+    //builder.Host.UseSerilog((x, y) =>
+    //{
+    //    y.ReadFrom.Configuration(x.Configuration)
+    //    .Enrich.FromLogContext();
+
+    //    y.WriteTo.File(path: "/Logs/log.txt");
+    //    y.WriteTo.Console();
+    //});
 
     builder.Services.AddControllers();
 

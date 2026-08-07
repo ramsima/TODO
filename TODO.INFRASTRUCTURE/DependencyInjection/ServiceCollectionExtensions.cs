@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Todo.Infrastructure.Repositories;
 using Todo.Application.Interfaces;
 using Todo.Infrastructure.Data;
+using TODO.APPLICATION.Interfaces;
+using TODO.INFRASTRUCTURE.Caching;
 
 namespace Todo.Infrastructure.DependencyInjection
 {
@@ -16,6 +18,10 @@ namespace Todo.Infrastructure.DependencyInjection
             this IServiceCollection services)
         {
             services.AddScoped<DbConnectionFactory>();
+
+            services.AddMemoryCache();
+
+            services.AddScoped<ICachingService, MemoryCachingService>();
 
             services.AddScoped<ITodoRepository, TodoRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();

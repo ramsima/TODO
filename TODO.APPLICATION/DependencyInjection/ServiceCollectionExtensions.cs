@@ -16,6 +16,7 @@ namespace Todo.Application.DependencyInjection
         public static IServiceCollection AddApplication(
         this IServiceCollection services)
         {
+
             services.AddScoped<ITodoService, TodoService>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IPriorityService, PriorityService>();
@@ -29,6 +30,8 @@ namespace Todo.Application.DependencyInjection
             services.AddValidatorsFromAssembly(typeof(ServiceCollectionExtensions).Assembly);
 
             services.AddTransient(typeof(IPipelineBehavior<,>),typeof(LoggingBehavior<,>));
+
+            services.AddTransient(typeof(IPipelineBehavior<,>),typeof(CachingBehavior<,>));
 
             services.AddTransient(typeof(IPipelineBehavior<,>),typeof(ValidationBehavior<,>));
 

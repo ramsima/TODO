@@ -2,14 +2,21 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using Todo.Application.DTOs;
+using TODO.APPLICATION.Interfaces;
 
 namespace TODO.APPLICATION.Features.Categories.Queries.GetAllCategories
 {
     public record GetAllCategoriesQuery(
-        
-        ):IRequest<IEnumerable<CategoryDto>>;
-    
+
+        ) : ICacheableQuery<IEnumerable<CategoryDto>>
+    {
+        public string CacheKey => "categories";
+
+        public TimeSpan? Expiration => TimeSpan.FromMinutes(5);
+    }
+
 }

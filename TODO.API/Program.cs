@@ -1,4 +1,4 @@
-using Serilog;
+ using Serilog;
 using System.Reflection;
 using Todo.Application.DependencyInjection;
 using Todo.Infrastructure.DependencyInjection;

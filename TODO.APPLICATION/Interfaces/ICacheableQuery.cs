@@ -9,7 +9,7 @@ namespace TODO.APPLICATION.Interfaces
 {
     public interface ICacheableQuery<TResponse> : IRequest<TResponse>
     {
-        string CacheKey { get; }
-        TimeSpan? Expiration { get; }
+        public string CacheKey { get; }
+        public TimeSpan? Expiration { get; }
     }
 }

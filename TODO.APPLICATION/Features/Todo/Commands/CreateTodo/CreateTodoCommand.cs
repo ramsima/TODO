@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Todo.Application.DTOs;
+using TODO.APPLICATION.Interfaces;
 
 namespace TODO.APPLICATION.Features.Todo.Commands.CreateTodo
 {
@@ -15,6 +16,9 @@ namespace TODO.APPLICATION.Features.Todo.Commands.CreateTodo
             int PriorityId,
             DateTime? DueDate,
             List<int> TagIds
-        ):IRequest<int>;
+        ) : ICacheInvalidationCommand<int>
+    {
+        public IReadOnlyCollection<string> CacheKey => new List<string> { "categories"};
+    }
     
 }

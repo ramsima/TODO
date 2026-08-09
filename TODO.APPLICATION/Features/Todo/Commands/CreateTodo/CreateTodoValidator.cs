@@ -53,7 +53,7 @@ namespace TODO.APPLICATION.Features.Todo.Commands.CreateTodo
                 return false;
             }
 
-            return date.Value.Date <= DateTime.UtcNow;
+            return date.Value.Date >= DateTime.UtcNow;
         }
 
     }

@@ -9,19 +9,29 @@ using Todo.Application.Interfaces;
 using Todo.Infrastructure.Data;
 using TODO.APPLICATION.Interfaces;
 using TODO.INFRASTRUCTURE.Caching;
+using StackExchange.Redis;
+using Microsoft.Extensions.Configuration;
 
 namespace Todo.Infrastructure.DependencyInjection
 {
     public static class ServiceCollectionExtensions
     {
         public static IServiceCollection AddInfrastructure(
-            this IServiceCollection services)
+            this IServiceCollection services,IConfiguration configuration)
         {
             services.AddScoped<DbConnectionFactory>();
 
+            var redisconnection = configuration.GetConnectionString("Redis");
+
+            services.AddSingleton<IConnectionMultiplexer>(
+                ConnectionMultiplexer.Connect(redisconnection!)
+                );
+
             services.AddMemoryCache();
 
-            services.AddScoped<ICachingService, MemoryCachingService>();
+            //services.AddScoped<ICachingService, MemoryCachingService>();
+
+            services.AddScoped<ICachingService, RedisCachingService>();
 
             services.AddScoped<ITodoRepository, TodoRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();

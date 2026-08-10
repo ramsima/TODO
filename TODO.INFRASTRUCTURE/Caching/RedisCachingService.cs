@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Logging;
 using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using TODO.APPLICATION.Interfaces;
 
 namespace TODO.INFRASTRUCTURE.Caching
 {
-    public class RedisCachingService(IConnectionMultiplexer _redis) : ICachingService
+    public class RedisCachingService(IConnectionMultiplexer _redis,ILogger<RedisCachingService> _logger) : ICachingService
     {
 
         private static readonly JsonSerializerOptions JsonOptions = new()
@@ -19,16 +20,34 @@ namespace TODO.INFRASTRUCTURE.Caching
         };
         public async Task<T?> GetAsync<T>(string key, CancellationToken cancellationToken)
         {
-            var database = _redis.GetDatabase();
-
-            var value = await database.StringGetAsync(key);
-
-            if (value.IsNullOrEmpty)
+            try
             {
+                var database = _redis.GetDatabase();
+
+                var value = await database.StringGetAsync(key);
+
+                if (value.IsNullOrEmpty)
+                {
+                    return default;
+                }
+
+                return JsonSerializer.Deserialize<T>(value.ToString(), JsonOptions);
+            }
+            catch(RedisException ex)
+            {
+                _logger.LogWarning(
+                ex,
+                "Redis GET failed for cache key {CacheKey}",
+                key);
+
                 return default;
             }
-
-            return JsonSerializer.Deserialize<T>(value.ToString(),JsonOptions);
+            catch(JsonException ex)
+            {
+                _logger.LogWarning("Invalid cached JSON for key {CacheKey}", key);
+                return default;
+            }
+            
         }
 
         public async Task<T?> GetOrCreateAsync<T>(string key, Func<Task<T>> factory, TimeSpan? expiration = null, CancellationToken cancellationToken = default)
@@ -51,20 +70,42 @@ namespace TODO.INFRASTRUCTURE.Caching
 
         public async Task RemoveAsync<T>(string key, CancellationToken cancellationToken)
         {
-            var database = _redis.GetDatabase();
+            try
+            {
+                var database = _redis.GetDatabase();
 
-            await database.KeyDeleteAsync(key);
+                await database.KeyDeleteAsync(key);
+            }
+            catch(RedisException ex)
+            {
+                _logger.LogWarning(
+                ex,
+                "Redis REMOVE failed for cache key {CacheKey}",
+                key);
+            }
+            
         }
 
         public async Task SetAsync<T>(string key, T value, TimeSpan? expiration = null, CancellationToken cancellationToken = default)
         {
-            var database = _redis.GetDatabase();
+            try
+            {
+                var database = _redis.GetDatabase();
 
-            var json = JsonSerializer.Serialize(value, JsonOptions);
+                var json = JsonSerializer.Serialize(value, JsonOptions);
 
-            Expiration redisExpiration = expiration.HasValue ? new Expiration(expiration.Value) : default;
+                Expiration redisExpiration = expiration.HasValue ? new Expiration(expiration.Value) : default;
 
-            await database.StringSetAsync(key, json, redisExpiration);
+                await database.StringSetAsync(key, json, redisExpiration);
+            }
+            catch(RedisException ex)
+            {
+                _logger.LogWarning(
+                ex,
+                "Redis SET failed for cache key {CacheKey}",
+                key);
+            }
+            
         }
     }
 }

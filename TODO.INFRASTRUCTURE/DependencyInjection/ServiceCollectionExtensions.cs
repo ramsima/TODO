@@ -23,6 +23,12 @@ namespace Todo.Infrastructure.DependencyInjection
 
             var redisconnection = configuration.GetConnectionString("Redis");
 
+            if (string.IsNullOrWhiteSpace(redisconnection))
+            {
+                throw new InvalidOperationException(
+                    "Redis connection string is not configured.");
+            }
+
             services.AddSingleton<IConnectionMultiplexer>(
                 ConnectionMultiplexer.Connect(redisconnection!)
                 );

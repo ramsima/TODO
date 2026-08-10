@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TODO.APPLICATION.Interfaces;
 
 namespace TODO.APPLICATION.Features.Todo.Commands.UpdateTodo
 {
@@ -16,6 +17,9 @@ namespace TODO.APPLICATION.Features.Todo.Commands.UpdateTodo
             DateTime? duedate,
             bool iscompleted,
             List<int> tagids
-        ):IRequest;
+        ) : ICacheInvalidationCommand<bool>
+    {
+        public IReadOnlyCollection<string> CacheKey => new List<string> { "todos:all",$"todos:${id}" };
+    }
     
 }

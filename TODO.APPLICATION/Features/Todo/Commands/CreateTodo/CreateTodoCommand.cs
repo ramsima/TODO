@@ -18,7 +18,7 @@ namespace TODO.APPLICATION.Features.Todo.Commands.CreateTodo
             List<int> TagIds
         ) : ICacheInvalidationCommand<int>
     {
-        public IReadOnlyCollection<string> CacheKey => new List<string> { "categories"};
+        public IReadOnlyCollection<string> CacheKey => new List<string> { "todos:all"};
     }
     
 }

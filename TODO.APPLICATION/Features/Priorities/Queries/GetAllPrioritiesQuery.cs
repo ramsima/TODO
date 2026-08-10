@@ -5,9 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Todo.Application.DTOs;
+using TODO.APPLICATION.Interfaces;
 
 namespace TODO.APPLICATION.Features.Priorities.Queries
 {
     public record GetAllPrioritiesQuery(
-        ):IRequest<IEnumerable<PriorityDto>>;
+        ) : ICacheableQuery<IEnumerable<PriorityDto>>
+    {
+        public string CacheKey => "priorities:all";
+
+        public TimeSpan? Expiration => TimeSpan.FromMinutes(10);
+    }
 }

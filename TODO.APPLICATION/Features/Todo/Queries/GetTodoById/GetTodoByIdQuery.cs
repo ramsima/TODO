@@ -5,11 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Todo.Application.DTOs;
+using TODO.APPLICATION.Interfaces;
 
 namespace TODO.APPLICATION.Features.Todo.Queries.GetTodoById
 {
     public record GetTodoByIdQuery(
             int id
-        ):IRequest<TodoDto?>;
+        ) : ICacheableQuery<TodoDto?>
+    {
+        public string CacheKey => $"todos:{id}";
+
+        public TimeSpan? Expiration => TimeSpan.FromMinutes(10);
+    }
     
 }

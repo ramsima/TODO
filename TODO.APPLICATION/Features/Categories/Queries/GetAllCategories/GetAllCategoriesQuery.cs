@@ -14,7 +14,7 @@ namespace TODO.APPLICATION.Features.Categories.Queries.GetAllCategories
 
         ) : ICacheableQuery<IEnumerable<CategoryDto>>
     {
-        public string CacheKey => "categories";
+        public string CacheKey => "categories:all";
 
         public TimeSpan? Expiration => TimeSpan.FromMinutes(5);
     }

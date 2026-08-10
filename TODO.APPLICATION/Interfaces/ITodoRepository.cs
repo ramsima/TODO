@@ -15,8 +15,8 @@ namespace Todo.Application.Interfaces
 
         Task<int> CreateAsync(CreateTodoDto dto,CancellationToken cancellationToken);
 
-        Task UpdateAsync(UpdateTodoDto dto,CancellationToken cancellationToken);
+        Task<bool> UpdateAsync(UpdateTodoDto dto,CancellationToken cancellationToken);
 
-        Task DeleteAsync(int id,CancellationToken cancellationToken);
+        Task<bool> DeleteAsync(int id,CancellationToken cancellationToken);
     }
 }

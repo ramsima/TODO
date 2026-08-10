@@ -8,11 +8,11 @@ using Todo.Application.Interfaces;
 
 namespace TODO.APPLICATION.Features.Todo.Commands.DeleteTodo
 {
-    public class DeleteTodoCommandHandler(ITodoRepository _repository):IRequestHandler<DeleteTodoCommand>
+    public class DeleteTodoCommandHandler(ITodoRepository _repository):IRequestHandler<DeleteTodoCommand,bool>
     {
-        public async Task Handle(DeleteTodoCommand request,CancellationToken cancellationToken)
+        public async Task<bool> Handle(DeleteTodoCommand request,CancellationToken cancellationToken)
         {
-            await _repository.DeleteAsync(request.id,cancellationToken);
+            return await _repository.DeleteAsync(request.id,cancellationToken);
         }
     }
 }

@@ -53,7 +53,7 @@ public class TodoRepository : ITodoRepository
         return await connection.ExecuteScalarAsync<int>(command);
     }
 
-    public async Task DeleteAsync(int id, CancellationToken cancellationToken)
+    public async Task<bool> DeleteAsync(int id, CancellationToken cancellationToken)
     {
         using var connection = _connectionFactory.CreateConnection();
 
@@ -68,7 +68,9 @@ public class TodoRepository : ITodoRepository
                 cancellationToken: cancellationToken
             );
 
-        await connection.ExecuteAsync(command);
+        int success = await connection.ExecuteAsync(command);
+
+        return success > 0;
     }
 
     public async Task<IEnumerable<TodoDto>> GetAllAsync(CancellationToken cancellationToken)
@@ -126,7 +128,7 @@ public class TodoRepository : ITodoRepository
         return await connection.QueryFirstOrDefaultAsync<TodoDto>(command);
     }
 
-    public async Task UpdateAsync(UpdateTodoDto dto, CancellationToken cancellationToken)
+    public async Task<bool> UpdateAsync(UpdateTodoDto dto, CancellationToken cancellationToken)
     {
         using var connection = _connectionFactory.CreateConnection();
 
@@ -148,6 +150,8 @@ public class TodoRepository : ITodoRepository
                 cancellationToken:cancellationToken
             );
 
-        await connection.ExecuteAsync(command);
+        int success = await connection.ExecuteAsync(command);
+
+        return success > 0;
     }
 }

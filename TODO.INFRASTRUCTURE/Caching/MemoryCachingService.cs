@@ -40,7 +40,7 @@ namespace TODO.INFRASTRUCTURE.Caching
             return value;
         }
 
-        public Task RemoveAsync<T>(string key, CancellationToken cancellationToken)
+        public Task RemoveAsync(string key, CancellationToken cancellationToken)
         {
             _cache.Remove(key);
             return Task.CompletedTask;

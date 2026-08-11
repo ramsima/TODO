@@ -26,7 +26,7 @@ namespace TODO.APPLICATION.Behaviors
             {
                 foreach(var key in cacheInvalidation.CacheKey)
                 {
-                    await _cache.RemoveAsync<int>(key, cancellationToken);
+                    await _cache.RemoveAsync(key, cancellationToken);
                     
 
                 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using Todo.Application.DTOs;
+using TODO.APPLICATION.DTOs;
 using TODO.APPLICATION.Interfaces;
 
 namespace TODO.APPLICATION.Features.Categories.Queries.GetAllCategories

@@ -37,7 +37,9 @@ namespace Todo.Infrastructure.DependencyInjection
 
             //services.AddScoped<ICachingService, MemoryCachingService>();
 
-            services.AddScoped<ICachingService, RedisCachingService>();
+            services.AddScoped<RedisCachingService>();
+
+            services.AddScoped<ICachingService,HybridCachingService>();
 
             services.AddScoped<ITodoRepository, TodoRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();

@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Todo.Application.DTOs;
+using TODO.APPLICATION.DTOs;
 using Todo.Application.Services;
 using TODO.APPLICATION.Common.Exceptions;
 using TODO.APPLICATION.Features.Todo.Commands.CreateTodo;

@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using StackExchange.Redis;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace TODO.INFRASTRUCTURE.Caching
 {
     public class RedisCachingService(IConnectionMultiplexer _redis,ILogger<RedisCachingService> _logger) : ICachingService
     {
-
+        private static readonly ConcurrentDictionary<string, SemaphoreSlim> Locks = new();
         private static readonly JsonSerializerOptions JsonOptions = new()
         {
             PropertyNamingPolicy = JsonNamingPolicy.CamelCase
@@ -59,16 +60,36 @@ namespace TODO.INFRASTRUCTURE.Caching
                 return cacheValue;
             }
 
-            var value = await factory();
+            var semaphore = Locks.GetOrAdd(key, _ => new SemaphoreSlim(1, 1));
 
-            await SetAsync<T>(key, value, expiration, cancellationToken);
+            await semaphore.WaitAsync(cancellationToken);
 
-            return value;
+            try
+            {
+                cacheValue = await GetAsync<T>(key, cancellationToken);
+
+                if (cacheValue is not null)
+                {
+                    return cacheValue;
+                }
+
+                var value = await factory();
+
+                await SetAsync<T>(key, value, expiration, cancellationToken);
+
+                return value;
+            }
+            finally 
+            {
+                semaphore.Release();
+            }
+
+            
 
 
         }
 
-        public async Task RemoveAsync<T>(string key, CancellationToken cancellationToken)
+        public async Task RemoveAsync(string key, CancellationToken cancellationToken)
         {
             try
             {

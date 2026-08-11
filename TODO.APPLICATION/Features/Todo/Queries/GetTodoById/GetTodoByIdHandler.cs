@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Todo.Application.DTOs;
 using Todo.Application.Interfaces;
 using TODO.APPLICATION.Common.Exceptions;
+using TODO.APPLICATION.DTOs;
 
 namespace TODO.APPLICATION.Features.Todo.Queries.GetTodoById
 {

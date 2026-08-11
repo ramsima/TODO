@@ -1,28 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "F:\\Channakya Projects\\ToDo1\\TODO\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{856CBD3A-E77B-49FC-8E1B-959C676F98D3}|TODO.API\\TODO.API.csproj|f:\\channakya projects\\todo1\\todo\\todo.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{856CBD3A-E77B-49FC-8E1B-959C676F98D3}|TODO.API\\TODO.API.csproj|solutionrelative:todo.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5427D231-3C20-4BCF-A57E-667D11AAF171}|TODO.INFRASTRUCTURE\\TODO.INFRASTRUCTURE.csproj|f:\\channakya projects\\todo1\\todo\\todo.infrastructure\\dependencyinjection\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5427D231-3C20-4BCF-A57E-667D11AAF171}|TODO.INFRASTRUCTURE\\TODO.INFRASTRUCTURE.csproj|solutionrelative:todo.infrastructure\\dependencyinjection\\servicecollectionextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2184562B-98A4-4F03-87E9-F30566088FE1}|TODO.APPLICATION\\TODO.APPLICATION.csproj|f:\\channakya projects\\todo1\\todo\\todo.application\\behaviors\\cacheinvalidationbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2184562B-98A4-4F03-87E9-F30566088FE1}|TODO.APPLICATION\\TODO.APPLICATION.csproj|solutionrelative:todo.application\\behaviors\\cacheinvalidationbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2184562B-98A4-4F03-87E9-F30566088FE1}|TODO.APPLICATION\\TODO.APPLICATION.csproj|f:\\channakya projects\\todo1\\todo\\todo.application\\behaviors\\cachingbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2184562B-98A4-4F03-87E9-F30566088FE1}|TODO.APPLICATION\\TODO.APPLICATION.csproj|solutionrelative:todo.application\\behaviors\\cachingbehavior.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5427D231-3C20-4BCF-A57E-667D11AAF171}|TODO.INFRASTRUCTURE\\TODO.INFRASTRUCTURE.csproj|f:\\channakya projects\\todo1\\todo\\todo.infrastructure\\caching\\rediscachingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5427D231-3C20-4BCF-A57E-667D11AAF171}|TODO.INFRASTRUCTURE\\TODO.INFRASTRUCTURE.csproj|solutionrelative:todo.infrastructure\\caching\\rediscachingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -30,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -43,71 +22,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.API\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "TODO.API\\Properties\\launchSettings.json",
-              "ToolTip": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.API\\Properties\\launchSettings.json",
-              "RelativeToolTip": "TODO.API\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-08-10T09:00:50.458Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CacheInvalidationBehavior.cs",
-              "DocumentMoniker": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.APPLICATION\\Behaviors\\CacheInvalidationBehavior.cs",
-              "RelativeDocumentMoniker": "TODO.APPLICATION\\Behaviors\\CacheInvalidationBehavior.cs",
-              "ToolTip": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.APPLICATION\\Behaviors\\CacheInvalidationBehavior.cs",
-              "RelativeToolTip": "TODO.APPLICATION\\Behaviors\\CacheInvalidationBehavior.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-10T08:52:37.516Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CachingBehavior.cs",
-              "DocumentMoniker": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.APPLICATION\\Behaviors\\CachingBehavior.cs",
-              "RelativeDocumentMoniker": "TODO.APPLICATION\\Behaviors\\CachingBehavior.cs",
-              "ToolTip": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.APPLICATION\\Behaviors\\CachingBehavior.cs",
-              "RelativeToolTip": "TODO.APPLICATION\\Behaviors\\CachingBehavior.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-10T08:52:10.962Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ServiceCollectionExtensions.cs",
-              "DocumentMoniker": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.INFRASTRUCTURE\\DependencyInjection\\ServiceCollectionExtensions.cs",
-              "RelativeDocumentMoniker": "TODO.INFRASTRUCTURE\\DependencyInjection\\ServiceCollectionExtensions.cs",
-              "ToolTip": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.INFRASTRUCTURE\\DependencyInjection\\ServiceCollectionExtensions.cs",
-              "RelativeToolTip": "TODO.INFRASTRUCTURE\\DependencyInjection\\ServiceCollectionExtensions.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB8AAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-10T08:50:35.875Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "RedisCachingService.cs",
-              "DocumentMoniker": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.INFRASTRUCTURE\\Caching\\RedisCachingService.cs",
-              "RelativeDocumentMoniker": "TODO.INFRASTRUCTURE\\Caching\\RedisCachingService.cs",
-              "ToolTip": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.INFRASTRUCTURE\\Caching\\RedisCachingService.cs",
-              "RelativeToolTip": "TODO.INFRASTRUCTURE\\Caching\\RedisCachingService.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAowBEAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-10T08:49:02.282Z",
-              "EditorCaption": ""
             }
           ]
         },
@@ -118,6 +32,10 @@
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             }
           ]
         }

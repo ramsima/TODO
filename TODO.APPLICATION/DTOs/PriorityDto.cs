@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Todo.Application.DTOs
+namespace TODO.APPLICATION.DTOs
 {
     public class PriorityDto
     {

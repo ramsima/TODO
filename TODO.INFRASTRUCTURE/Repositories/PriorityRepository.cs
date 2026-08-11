@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Todo.Application.DTOs;
 using Todo.Application.Interfaces;
 using Todo.Infrastructure.Data;
 using Dapper;
+using TODO.APPLICATION.DTOs;
 
 namespace Todo.Infrastructure.Repositories
 {

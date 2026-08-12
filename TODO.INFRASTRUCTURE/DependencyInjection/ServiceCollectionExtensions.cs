@@ -33,6 +33,8 @@ namespace Todo.Infrastructure.DependencyInjection
                 ConnectionMultiplexer.Connect(redisconnection!)
                 );
 
+           
+
             services.AddMemoryCache();
 
             //services.AddScoped<ICachingService, MemoryCachingService>();
@@ -40,6 +42,10 @@ namespace Todo.Infrastructure.DependencyInjection
             services.AddScoped<RedisCachingService>();
 
             services.AddScoped<ICachingService,HybridCachingService>();
+
+            services.AddSingleton<ICacheInvalidationPublisher, RedisCacheInvalidationPublisher>();
+
+            services.AddHostedService<RedisCacheInvalidationSubscriber>();
 
             services.AddScoped<ITodoRepository, TodoRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();

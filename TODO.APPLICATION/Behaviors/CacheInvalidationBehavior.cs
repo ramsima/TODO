@@ -10,7 +10,7 @@ using TODO.APPLICATION.Interfaces;
 
 namespace TODO.APPLICATION.Behaviors
 {
-    public class CacheInvalidationBehavior<TRequest,TResponse>(ICachingService _cache, ILogger<CacheInvalidationBehavior<TRequest,TResponse>> _logger) : IPipelineBehavior<TRequest,TResponse> where TRequest : notnull
+    public class CacheInvalidationBehavior<TRequest,TResponse>(ICachingService _cache, ILogger<CacheInvalidationBehavior<TRequest,TResponse>> _logger,ICacheInvalidationPublisher _publisher) : IPipelineBehavior<TRequest,TResponse> where TRequest : notnull
     {
         public async Task<TResponse> Handle(
             TRequest request,
@@ -30,6 +30,8 @@ namespace TODO.APPLICATION.Behaviors
                     
 
                 }
+
+                await _publisher.PublishAsync(cacheInvalidation.CacheKey, cancellationToken);
 
                 _logger.LogInformation(
                     "Deleted cache for {RequestName} with key {CacheKey}",

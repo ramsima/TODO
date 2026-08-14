@@ -7,12 +7,13 @@ using Todo.Application.Interfaces;
 using Todo.Infrastructure.Data;
 using Dapper;
 using TODO.APPLICATION.DTOs;
+using TODO.APPLICATION.Data_Interface;
 
 namespace Todo.Infrastructure.Repositories
 {
-    public class CategoryRepository(DbConnectionFactory connectionFactory) : ICategoryRepository
+    public class CategoryRepository(IDbConnectionFactory _connectionFactory) : ICategoryRepository
     {
-        private readonly DbConnectionFactory _connectionFactory = connectionFactory;
+        
         public async Task<IEnumerable<CategoryDto>> GetAllAsync(CancellationToken cancellationToken)
         {
             using var connection = _connectionFactory.CreateConnection();

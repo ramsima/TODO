@@ -1,15 +1,16 @@
 ﻿using Dapper;
 using Todo.Application.Interfaces;
 using Todo.Infrastructure.Data;
+using TODO.APPLICATION.Data_Interface;
 using TODO.APPLICATION.DTOs;
 
 namespace Todo.Infrastructure.Repositories;
 
 public class TagRepository : ITagRepository
 {
-    private readonly DbConnectionFactory _connectionFactory;
+    private readonly IDbConnectionFactory _connectionFactory;
 
-    public TagRepository(DbConnectionFactory connectionFactory)
+    public TagRepository(IDbConnectionFactory connectionFactory)
     {
         _connectionFactory = connectionFactory;
     }

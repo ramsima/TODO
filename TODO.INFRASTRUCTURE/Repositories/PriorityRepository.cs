@@ -7,14 +7,15 @@ using Todo.Application.Interfaces;
 using Todo.Infrastructure.Data;
 using Dapper;
 using TODO.APPLICATION.DTOs;
+using TODO.APPLICATION.Data_Interface;
 
 namespace Todo.Infrastructure.Repositories
 {
     public class PriorityRepository : IPriorityRepository
     {
-        private readonly DbConnectionFactory _connectionFactory;
+        private readonly IDbConnectionFactory _connectionFactory;
 
-        public PriorityRepository(DbConnectionFactory connectionFactory)
+        public PriorityRepository(IDbConnectionFactory connectionFactory)
         {
             _connectionFactory = connectionFactory;
         }

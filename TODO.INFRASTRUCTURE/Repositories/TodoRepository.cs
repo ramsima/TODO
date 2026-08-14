@@ -2,15 +2,16 @@
 using System.Data;
 using Todo.Application.Interfaces;
 using Todo.Infrastructure.Data;
+using TODO.APPLICATION.Data_Interface;
 using TODO.APPLICATION.DTOs;
 
 namespace Todo.Infrastructure.Repositories;
 
 public class TodoRepository : ITodoRepository
 {
-    private readonly DbConnectionFactory _connectionFactory;
+    private readonly IDbConnectionFactory _connectionFactory;
 
-    public TodoRepository(DbConnectionFactory connectionFactory)
+    public TodoRepository(IDbConnectionFactory connectionFactory)
     {
         _connectionFactory = connectionFactory;
     }

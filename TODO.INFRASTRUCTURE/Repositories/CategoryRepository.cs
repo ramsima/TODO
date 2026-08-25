@@ -8,24 +8,26 @@ using Todo.Infrastructure.Data;
 using Dapper;
 using TODO.APPLICATION.DTOs;
 using TODO.APPLICATION.Data_Interface;
+using TODO.APPLICATION.Interfaces;
 
 namespace Todo.Infrastructure.Repositories
 {
-    public class CategoryRepository(IDbConnectionFactory _connectionFactory) : ICategoryRepository
+    public class CategoryRepository(IUnitOfWork _uow) : ICategoryRepository
     {
         
         public async Task<IEnumerable<CategoryDto>> GetAllAsync(CancellationToken cancellationToken)
         {
-            using var connection = _connectionFactory.CreateConnection();
+            //using var connection = _connectionFactory.CreateConnection();
             string sql = @"SELECT Id, Name
               FROM Categories
               ORDER BY Name";
 
             var command = new CommandDefinition(
                     commandText:sql,
-                    cancellationToken:cancellationToken
+                    cancellationToken:cancellationToken,
+                    transaction: _uow.Transaction
                 );
-            var a = await connection.QueryAsync<CategoryDto>(command);
+            var a = await _uow.Connection.QueryAsync<CategoryDto>(command);
             return a;
         }
     }

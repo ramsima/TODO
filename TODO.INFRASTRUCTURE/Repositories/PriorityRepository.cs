@@ -8,28 +8,30 @@ using Todo.Infrastructure.Data;
 using Dapper;
 using TODO.APPLICATION.DTOs;
 using TODO.APPLICATION.Data_Interface;
+using TODO.APPLICATION.Interfaces;
 
 namespace Todo.Infrastructure.Repositories
 {
     public class PriorityRepository : IPriorityRepository
     {
-        private readonly IDbConnectionFactory _connectionFactory;
+        private readonly IUnitOfWork _uow;
 
-        public PriorityRepository(IDbConnectionFactory connectionFactory)
+        public PriorityRepository(IUnitOfWork uow)
         {
-            _connectionFactory = connectionFactory;
+            _uow = uow;
         }
 
         public async Task<IEnumerable<PriorityDto>> GetAllAsync(CancellationToken cancellationToken)
         {
-            using var connection = _connectionFactory.CreateConnection();
+            //using var connection = _connectionFactory.CreateConnection();
 
             var command = new CommandDefinition(
                     commandText: @"SELECT Id, Name FROM Priorities ORDER BY Name",
-                    cancellationToken:cancellationToken
+                    cancellationToken:cancellationToken,
+                    transaction: _uow.Transaction
                 );
 
-            return await connection.QueryAsync<PriorityDto>(command);
+            return await _uow.Connection.QueryAsync<PriorityDto>(command);
         }
     }
 }

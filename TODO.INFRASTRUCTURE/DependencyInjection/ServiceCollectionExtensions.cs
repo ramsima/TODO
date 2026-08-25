@@ -12,6 +12,7 @@ using TODO.INFRASTRUCTURE.Caching;
 using StackExchange.Redis;
 using Microsoft.Extensions.Configuration;
 using TODO.APPLICATION.Data_Interface;
+using TODO.INFRASTRUCTURE.UnitOfWork;
 
 namespace Todo.Infrastructure.DependencyInjection
 {
@@ -20,7 +21,9 @@ namespace Todo.Infrastructure.DependencyInjection
         public static IServiceCollection AddInfrastructure(
             this IServiceCollection services,IConfiguration configuration)
         {
-            services.AddScoped<IDbConnectionFactory,DbConnectionFactory>();
+            services.AddSingleton<DbConnectionFactory>();
+
+            services.AddScoped<IUnitOfWork,UnitOfWork>();
 
             var redisconnection = configuration.GetConnectionString("Redis");
 

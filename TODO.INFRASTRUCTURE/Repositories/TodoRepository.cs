@@ -4,21 +4,22 @@ using Todo.Application.Interfaces;
 using Todo.Infrastructure.Data;
 using TODO.APPLICATION.Data_Interface;
 using TODO.APPLICATION.DTOs;
+using TODO.APPLICATION.Interfaces;
 
 namespace Todo.Infrastructure.Repositories;
 
 public class TodoRepository : ITodoRepository
 {
-    private readonly IDbConnectionFactory _connectionFactory;
+    private readonly IUnitOfWork _uow;
 
-    public TodoRepository(IDbConnectionFactory connectionFactory)
+    public TodoRepository(IUnitOfWork uow)
     {
-        _connectionFactory = connectionFactory;
+        _uow = uow;
     }
 
     public async Task<int> CreateAsync(CreateTodoDto dto, CancellationToken cancellationToken)
     {
-        using var connection = _connectionFactory.CreateConnection();
+        //using var connection = _connectionFactory.CreateConnection();
 
         var sql = @"
         INSERT INTO Todos
@@ -47,36 +48,38 @@ public class TodoRepository : ITodoRepository
 
         var command = new CommandDefinition(
                 commandText: sql,
-                cancellationToken:cancellationToken,
-                parameters: dto
+                cancellationToken: cancellationToken,
+                parameters: dto,
+                transaction: _uow.Transaction
             );
 
-        return await connection.ExecuteScalarAsync<int>(command);
+        return await _uow.Connection.ExecuteScalarAsync<int>(command);
     }
 
     public async Task<bool> DeleteAsync(int id, CancellationToken cancellationToken)
     {
-        using var connection = _connectionFactory.CreateConnection();
+        //using var connection = _connectionFactory.CreateConnection();
 
         string sql = @"
             Delete from Todos where Id = @Id
         ";
 
         var command = new CommandDefinition(
-                commandText:sql,
-                commandType:CommandType.Text,
-                parameters: new {Id = id},
-                cancellationToken: cancellationToken
+                commandText: sql,
+                commandType: CommandType.Text,
+                parameters: new { Id = id },
+                cancellationToken: cancellationToken,
+                transaction: _uow.Transaction
             );
 
-        int success = await connection.ExecuteAsync(command);
+        int success = await _uow.Connection.ExecuteAsync(command);
 
         return success > 0;
     }
 
     public async Task<IEnumerable<TodoDto>> GetAllAsync(CancellationToken cancellationToken)
     {
-        using var connection = _connectionFactory.CreateConnection();
+        //using var connection = _connectionFactory.CreateConnection();
 
         var sql = @"
         SELECT
@@ -94,15 +97,16 @@ public class TodoRepository : ITodoRepository
             ON t.PriorityId = p.Id";
 
         var command = new CommandDefinition(
-                commandText : sql,
-                cancellationToken: cancellationToken
+                commandText: sql,
+                cancellationToken: cancellationToken,
+                transaction: _uow.Transaction
              );
-        return await connection.QueryAsync<TodoDto>(command);
+        return await _uow.Connection.QueryAsync<TodoDto>(command);
     }
 
     public async Task<TodoDto?> GetByIdAsync(int id, CancellationToken cancellationToken)
     {
-        using var connection = _connectionFactory.CreateConnection();
+        //using var connection = _connectionFactory.CreateConnection();
 
         var sql = @"
         SELECT
@@ -123,15 +127,16 @@ public class TodoRepository : ITodoRepository
         var command = new CommandDefinition(
                 commandText: sql,
                 cancellationToken: cancellationToken,
-                parameters: new {Id = id}
+                parameters: new { Id = id },
+                transaction: _uow.Transaction
             );
 
-        return await connection.QueryFirstOrDefaultAsync<TodoDto>(command);
+        return await _uow.Connection.QueryFirstOrDefaultAsync<TodoDto>(command);
     }
 
     public async Task<bool> UpdateAsync(UpdateTodoDto dto, CancellationToken cancellationToken)
     {
-        using var connection = _connectionFactory.CreateConnection();
+        //using var connection = _connectionFactory.CreateConnection();
 
         var sql = @"
         UPDATE Todos
@@ -146,12 +151,13 @@ public class TodoRepository : ITodoRepository
         WHERE Id = @Id";
 
         var command = new CommandDefinition(
-                commandText:sql,
-                parameters:dto,
-                cancellationToken:cancellationToken
+                commandText: sql,
+                parameters: dto,
+                cancellationToken: cancellationToken,
+                transaction: _uow.Transaction
             );
 
-        int success = await connection.ExecuteAsync(command);
+        int success = await _uow.Connection.ExecuteAsync(command);
 
         return success > 0;
     }

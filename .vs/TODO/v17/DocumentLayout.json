@@ -1,7 +1,28 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "F:\\Channakya Projects\\ToDo1\\TODO\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{856CBD3A-E77B-49FC-8E1B-959C676F98D3}|TODO.API\\TODO.API.csproj|f:\\channakya projects\\todo1\\todo\\todo.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{856CBD3A-E77B-49FC-8E1B-959C676F98D3}|TODO.API\\TODO.API.csproj|solutionrelative:todo.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5427D231-3C20-4BCF-A57E-667D11AAF171}|TODO.INFRASTRUCTURE\\TODO.INFRASTRUCTURE.csproj|f:\\channakya projects\\todo1\\todo\\todo.infrastructure\\repositories\\tagrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5427D231-3C20-4BCF-A57E-667D11AAF171}|TODO.INFRASTRUCTURE\\TODO.INFRASTRUCTURE.csproj|solutionrelative:todo.infrastructure\\repositories\\tagrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5427D231-3C20-4BCF-A57E-667D11AAF171}|TODO.INFRASTRUCTURE\\TODO.INFRASTRUCTURE.csproj|f:\\channakya projects\\todo1\\todo\\todo.infrastructure\\repositories\\todorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5427D231-3C20-4BCF-A57E-667D11AAF171}|TODO.INFRASTRUCTURE\\TODO.INFRASTRUCTURE.csproj|solutionrelative:todo.infrastructure\\repositories\\todorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5427D231-3C20-4BCF-A57E-667D11AAF171}|TODO.INFRASTRUCTURE\\TODO.INFRASTRUCTURE.csproj|f:\\channakya projects\\todo1\\todo\\todo.infrastructure\\repositories\\priorityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5427D231-3C20-4BCF-A57E-667D11AAF171}|TODO.INFRASTRUCTURE\\TODO.INFRASTRUCTURE.csproj|solutionrelative:todo.infrastructure\\repositories\\priorityrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5427D231-3C20-4BCF-A57E-667D11AAF171}|TODO.INFRASTRUCTURE\\TODO.INFRASTRUCTURE.csproj|f:\\channakya projects\\todo1\\todo\\todo.infrastructure\\repositories\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5427D231-3C20-4BCF-A57E-667D11AAF171}|TODO.INFRASTRUCTURE\\TODO.INFRASTRUCTURE.csproj|solutionrelative:todo.infrastructure\\repositories\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,6 +43,71 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.API\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "TODO.API\\Properties\\launchSettings.json",
+              "ToolTip": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.API\\Properties\\launchSettings.json",
+              "RelativeToolTip": "TODO.API\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-08-25T12:11:51.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TodoRepository.cs",
+              "DocumentMoniker": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.INFRASTRUCTURE\\Repositories\\TodoRepository.cs",
+              "RelativeDocumentMoniker": "TODO.INFRASTRUCTURE\\Repositories\\TodoRepository.cs",
+              "ToolTip": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.INFRASTRUCTURE\\Repositories\\TodoRepository.cs",
+              "RelativeToolTip": "TODO.INFRASTRUCTURE\\Repositories\\TodoRepository.cs",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAcwI4AAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T12:02:59.821Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TagRepository.cs",
+              "DocumentMoniker": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.INFRASTRUCTURE\\Repositories\\TagRepository.cs",
+              "RelativeDocumentMoniker": "TODO.INFRASTRUCTURE\\Repositories\\TagRepository.cs",
+              "ToolTip": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.INFRASTRUCTURE\\Repositories\\TagRepository.cs",
+              "RelativeToolTip": "TODO.INFRASTRUCTURE\\Repositories\\TagRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T12:02:43.322Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PriorityRepository.cs",
+              "DocumentMoniker": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.INFRASTRUCTURE\\Repositories\\PriorityRepository.cs",
+              "RelativeDocumentMoniker": "TODO.INFRASTRUCTURE\\Repositories\\PriorityRepository.cs",
+              "ToolTip": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.INFRASTRUCTURE\\Repositories\\PriorityRepository.cs",
+              "RelativeToolTip": "TODO.INFRASTRUCTURE\\Repositories\\PriorityRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T12:02:20.761Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CategoryRepository.cs",
+              "DocumentMoniker": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.INFRASTRUCTURE\\Repositories\\CategoryRepository.cs",
+              "RelativeDocumentMoniker": "TODO.INFRASTRUCTURE\\Repositories\\CategoryRepository.cs",
+              "ToolTip": "F:\\Channakya Projects\\ToDo1\\TODO\\TODO.INFRASTRUCTURE\\Repositories\\CategoryRepository.cs",
+              "RelativeToolTip": "TODO.INFRASTRUCTURE\\Repositories\\CategoryRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-25T12:01:44.217Z",
+              "EditorCaption": ""
             }
           ]
         },

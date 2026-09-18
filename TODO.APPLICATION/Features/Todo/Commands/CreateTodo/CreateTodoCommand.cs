@@ -16,7 +16,7 @@ namespace TODO.APPLICATION.Features.Todo.Commands.CreateTodo
             int PriorityId,
             DateTime? DueDate,
             List<int> TagIds
-        ) : ICacheInvalidationCommand<int>
+        ) : ICacheInvalidationCommand<int>,ITransactionalRequest
     {
         public IReadOnlyCollection<string> CacheKey => new List<string> { "todos:all"};
     }

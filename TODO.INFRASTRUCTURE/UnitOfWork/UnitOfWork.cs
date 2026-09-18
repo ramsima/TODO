@@ -24,9 +24,9 @@ namespace TODO.INFRASTRUCTURE.UnitOfWork
 
         public async Task BeginAsync(CancellationToken cancellationToken = default)
         {
-            if(_connection is DbConnection dbConnectin)
+            if(_connection is DbConnection dbConnection)
             {
-                await dbConnectin.OpenAsync(cancellationToken);
+                await dbConnection.OpenAsync(cancellationToken);
             }
             else
             {

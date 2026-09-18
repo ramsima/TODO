@@ -10,5 +10,7 @@ namespace Todo.Application.Interfaces
     public interface ITagRepository
     {
         Task<IEnumerable<TagDto>> GetAllAsync(CancellationToken cancellationToken);
+
+        Task CreateTodoTagsAsync(int todoid, List<int> tagids, CancellationToken cancellationToken);
     }
 }

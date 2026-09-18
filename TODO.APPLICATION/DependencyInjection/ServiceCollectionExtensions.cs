@@ -27,15 +27,16 @@ namespace Todo.Application.DependencyInjection
                 cfg.RegisterServicesFromAssembly(typeof(ServiceCollectionExtensions).Assembly);
             });
 
-            services.AddValidatorsFromAssembly(typeof(ServiceCollectionExtensions).Assembly);
-
             services.AddTransient(typeof(IPipelineBehavior<,>),typeof(LoggingBehavior<,>));
-
-            services.AddTransient(typeof(IPipelineBehavior<,>),typeof(CachingBehavior<,>));
 
             services.AddTransient(typeof(IPipelineBehavior<,>),typeof(ValidationBehavior<,>));
 
-            services.AddTransient(typeof(IPipelineBehavior<,>),typeof(CacheInvalidationBehavior<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CacheInvalidationBehavior<,>));
+
+            services.AddTransient(typeof(IPipelineBehavior<,>),typeof(TransactionBehaviour<,>));
+
+            services.AddTransient(typeof(IPipelineBehavior<,>),typeof(CachingBehavior<,>));
+
 
             return services;
         }

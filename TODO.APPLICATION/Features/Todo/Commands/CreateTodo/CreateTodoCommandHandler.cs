@@ -3,13 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Todo.Application.Interfaces;
 using TODO.APPLICATION.DTOs;
 
 namespace TODO.APPLICATION.Features.Todo.Commands.CreateTodo
 {
-    public class CreateTodoCommandHandler(ITodoRepository _repository):IRequestHandler<CreateTodoCommand,int>
+    public class CreateTodoCommandHandler(ITodoRepository _repository,ITagRepository _tagrepository):IRequestHandler<CreateTodoCommand,int>
     {
         public async Task<int> Handle(CreateTodoCommand request,CancellationToken cancellationoToken)
         {
@@ -23,7 +24,15 @@ namespace TODO.APPLICATION.Features.Todo.Commands.CreateTodo
                 TagIds = request.TagIds
 
             };
-            return await _repository.CreateAsync(dto,cancellationoToken);
+            var todoId = await _repository.CreateAsync(
+            dto,
+            cancellationoToken);
+
+            await _tagrepository.CreateTodoTagsAsync(todoId,request.TagIds,cancellationoToken);
+
+            throw new Exception("Testing two-write transaction rollback");
+
+            return todoId;
         }
     }
 }

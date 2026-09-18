@@ -80,7 +80,7 @@ namespace TODO.API.Middleware
                 responseCode = errorcode,
                 result = null,
                 message = ex.Message,
-                meta = ex is ValidationException validationException?
+                meta = ex is ValidationException validationException ?
                         new
                         {
                             traceid,

@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,14 +10,16 @@ using TODO.APPLICATION.Interfaces;
 
 namespace TODO.INFRASTRUCTURE.Caching
 {
-    public class MemoryCachingService(IMemoryCache _cache) : ICachingService
+    public class MemoryCachingService(IMemoryCache _cache, ILogger<MemoryCachingService> _logger) : ICachingService
     {
+
+        public static readonly ConcurrentDictionary<string, SemaphoreSlim> Locks = new ConcurrentDictionary<string, SemaphoreSlim>();
         public Task<T?> GetAsync<T>(string key, CancellationToken cancellationToken)
         {
             _cache.TryGetValue(key, out T? value);
-            
+
             return Task.FromResult(value);
-            
+
 
 
 
@@ -23,21 +27,50 @@ namespace TODO.INFRASTRUCTURE.Caching
 
         public async Task<T?> GetOrCreateAsync<T>(string key, Func<Task<T>> factory, TimeSpan? expiration = null, CancellationToken cancellationToken = default)
         {
-            var cachedValue = await GetAsync<T>(key,cancellationToken);
+            var cachedValue = await GetAsync<T>(key, cancellationToken);
 
             if (cachedValue is not null)
             {
                 return cachedValue;
             }
 
-            var value = await factory();
+            var semaphore = Locks.GetOrAdd(key, _ => new SemaphoreSlim(1, 1));
+            await semaphore.WaitAsync();
 
-            if (value is not null)
+            try
             {
-                await SetAsync(key,value,expiration,cancellationToken);
+                cachedValue = await GetAsync<T>(key, cancellationToken);
+
+                if (cachedValue is not null)
+                {
+                    return cachedValue;
+                }
+
+                var value = await factory();
+
+                if (value is not null)
+                {
+                    await SetAsync(key, value, expiration, cancellationToken);
+                }
+
+                return value;
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(
+                    ex,
+                    "Error while getting or creating cache entry {CacheKey}",
+                    key
+                );
+
+                throw;
+            }
+            finally
+            {
+                semaphore.Release();
             }
 
-            return value;
         }
 
         public Task RemoveAsync(string key, CancellationToken cancellationToken)
@@ -52,7 +85,7 @@ namespace TODO.INFRASTRUCTURE.Caching
             {
                 AbsoluteExpirationRelativeToNow = expiration,
                 Priority = CacheItemPriority.Normal
-                
+
             });
 
             return Task.CompletedTask;

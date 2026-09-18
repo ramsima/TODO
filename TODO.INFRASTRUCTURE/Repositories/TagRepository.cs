@@ -31,4 +31,23 @@ public class TagRepository : ITagRepository
 
         return await _uow.Connection.QueryAsync<TagDto>(command);
     }
+
+    
+    public async Task CreateTodoTagsAsync(int todoid, List<int> tagids,CancellationToken cancellationToken)
+    {
+        //using var connection = _connectionFactory.CreateConnection();
+
+        foreach (var tag in tagids) {
+
+            var command = new CommandDefinition(
+                commandText: @"Insert into TodoTags (TodoId,TagId) values (@todoid,@tagid)",
+                parameters:new {todoid = todoid, tagid = tag},
+                cancellationToken: cancellationToken,
+                transaction: _uow.Transaction
+            );
+
+            await _uow.Connection.ExecuteAsync(command);
+        }
+        
+    }
 }
